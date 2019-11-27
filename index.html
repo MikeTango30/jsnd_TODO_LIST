@@ -6,110 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>DoubleClick</title>
+    <title>JS</title>
 </head>
-<body >
-    <div class="container">
-        <div class="row m-3">
-            <div class="col">
-                <button onclick="display()" class="btn btn-info">Prideti</button>
-            </div>
+<body>
+<div class="container">
+    <!-- mygtukas pirminiam lange, duomenu ivedimo formai iskviesti ---->
+    <div class="row m-3">
+        <div class="col">
+            <button onclick="display()" class="btn btn-info">Prideti</button>
         </div>
-        <div id="forma" class="row forma bgc">
-            <div class="col-12">
-                <div class="form-group row">
-                    <label for="subject" class="col-sm-3 col-form-label">Subject</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                    </div>
-                </div>
-
-                <fieldset class="form-group">
-                    <div class="row">
-                        <legend class="col-form-label col-sm-3 pt-0">Priority</legend>
-                        <div class="col-sm-9">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    High
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Low
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Normal
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <div class="form-group row">
-                    <label for="duedate" class="col-sm-3 col-form-label">Date</label>
-                    <div class="col-sm-9">
-                        <input type="datetime-local" class="form-control" id="duedate" placeholder="Due Date">
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button  id="patvirtinti" onclick="displayNone()" class="btn btn-primary">Patvirtinti</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row">
-            <table class="table">
-                <thead class="thead-light">
-                <tr>
-                    <th scope="col"><img src="img/diagram.png" height="50"></th>
-                    <th scope="col">Done</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Due date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Parcent completed</th>
-                    <th scope="col">Modified on</th>
-                    <th scope="col">Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row"><img src="img/pirma.png"></th>
-                    <td><input type="checkbox" class="checkbox" /></td>
-                    <td id="subjectui">New website</td>
-                    <td id="prioritetui">Hight</td>
-                    <td id="datai">04/28/2018</td>
-                    <td>New</td>
-                    <td>100%</td>
-                    <td>11/11/2019</td>
-                    <td><button class="trinti">Trinti</button></td>
-
-                </tr>
-                </tbody>
-            </table>
-
-
-
-
-        </div>
-
     </div>
+    <!-- duomenu ivedimo forma----->
+    <div class="row">
+        <div class="col">
+    <form class=" p-5" id="dataform">
+        <div class="form-group">
+            <label for="TaskInput">Task</label>
+            <input type="text" class="form-control" id="TaskInput" placeholder="Task input">
+        </div>
+        <div class="form-group row">
+            <label for="duedate" class="col-sm-3 col-form-label">Due Date</label>
+            <div class="col-sm-9">
+                <input type="datetime-local" class="form-control" id="duedate" placeholder="Due Date">
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPriority">Priority</label>
+            <select id="inputPriority" class="form-control">
+                <option selected>high</option>
+                <option>normal</option>
+                <option>low</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputprogres">Progres</label>
+            <select id="inputprogres" class="form-control">
+                <option selected>25%</option>
+                <option>50%</option>
+                <option>100%</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button  id="confirm" onclick="displayNone()" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    </div>
+    <!-----duomenu ivedimo formos pabaiga----->
 
+    <!-----kuriama lentele------>
+    <table class="table">
+        <thead class="thead-light" id="TasksList">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Done</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+       <!----cia JS surasys duomenis is lenteles---->
+        </tbody>
+    </table>
+
+
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/ajs.js"></script>
 </body>
-
-
-
 </html>

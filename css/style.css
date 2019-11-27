@@ -2,6 +2,7 @@
     background-color: azure;
     padding: 10px;
 }
-.forma{
+#dataform{
     display: none;
+    background: whitesmoke;
 }
