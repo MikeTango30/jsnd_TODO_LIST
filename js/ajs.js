@@ -9,16 +9,17 @@ function display() {
 const button = document.querySelector('#confirm');
 button.addEventListener('click', read);
 let duomenuMasyvas = [];
+
 function read() {
     duomenuMasyvas.push(document.getElementById("TaskInput").value);
     duomenuMasyvas.push(document.getElementById("duedate").value);
     duomenuMasyvas.push(document.getElementById("inputPriority").value);
     duomenuMasyvas.push(document.getElementById("inputProgres").value);
-    //console.log(duomenuMasyvas);
+    console.log(duomenuMasyvas);
+    localStorage.setItem('duomenuMasyvas', duomenuMasyvas);
+    console.log(localStorage.getItem('duomenuMasyvas'));
 
-        }
-
-
+}
 
 
 
