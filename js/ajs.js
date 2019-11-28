@@ -4,42 +4,27 @@ function display() {
     x.style.display = "block";
 }
 
-//-------duomenu nuskaitymas
+//----mano kintamieji
+
+//1-mygtukas
 
 const button = document.querySelector('#confirm');
+button.addEventListener('click', readWrite);
 
-button.addEventListener('click', read)
-
-function read() {
-        let formData = {};
-            formData["Task"] = document.getElementById("TaskInput").value;
-            formData["duedate"] = document.getElementById("duedate").value;
-            formData["inputPriority"] = document.getElementById("inputPriority").value;
-            formData["inputprogres"] = document.getElementById("inputprogres").value;
-            return formData;
+//---2 - pirmas col su icon
+let stulpelis1 = document.querySelector('#ForIcon');
+const ikona = "<i class=\"material-icons\"></i>";
 
 
-        }
-//------duomenu irasymas i table
-function write(data) {
-    let table = document.getElementById("TasksList").getElementsByTagName('tbody')[0];
-        let newRow = table.insertRow(table.length);
-        cell1 = newRow.insertCell(0);
-        cell1.innerHTML ="<i class=\"far fa-clock\"></i>";
-        cell2 = newRow.insertCell(1);
-        cell2.innerHTML = "<input type=\"checkbox\"> ";
-        cell3 = newRow.insertCell(2);
-        cell3.innerHTML = data.Task;
-        cell4 = newRow.insertCell(3);
-        cell4.innerHTML = data.inputPriority;
-        cell5 = newRow.insertCell(4);
-        cell5.innerHTML = data.duedate;
-        cell6 = newRow.insertCell(5);
-        cell6.innerHTML = data.inputprogres;
-        cell7 = newRow.insertCell(6);
-        cell7.innerHTML = '<a onClick="onDelete(this)">Delete</a>';
+//-------duomenu nuskaitymo, irasymo funkcija
 
+function readWrite() {
+    let vieta = document.getElementById("TasksList").getElementsByTagName('tbody');
+
+    stulpelis1.innerHTML = ikona;
 }
+
+
 //-------forma paslepiama supildzius duomenis
 function displayNone() {
     let y = document.getElementById("dataform");
